@@ -64,7 +64,7 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/wback.jpg');
 							<%
 								long id = DataUtility.getLong(request.getParameter("id"));
 
-								if (dto.getId()!=null) {
+								if (dto.getId()!=null&&id>0) {
 							%>
 							<h3 class="text-center text-primary">Update Time Table</h3>
 							<%
@@ -197,7 +197,7 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/wback.jpg');
 
 							</br>
 							<%
-								if (id>0) {
+								if (dto.getId()!=null&&id>0) {
 							%>
 							<div class="text-center">
 								<input type="submit" name="operation"

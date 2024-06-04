@@ -46,11 +46,11 @@ i.css {
 }
 
 .input-group-addon {
- box-shadow: 9px 8px 7px #001a33; 
+	/* box-shadow: 9px 8px 7px #001a33; */
 }
 
 .p4 {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/welcome.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/unsplash.jpg');
 	background-size: cover;
 	background-repeat: no repeat;
 	padding-top: 6%;

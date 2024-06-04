@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-May-2024, 2:30:05 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="in.co.rays.project_3.dto">
+    <class name="JobRequirementDTO" table="JOBREQUIREMENTDTO">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" />
+        </property>
+        
+        <property name="client" type="java.lang.String">
+            <column name="CLIENT" />
+        </property>
+        <property name="openDate" type="java.util.Date">
+            <column name="OPENDATE" />
+        </property>
+        <property name="jobDiscription" type="java.lang.String">
+            <column name="JOBDISCRIPTION" />
+        </property>
+    </class>
+</hibernate-mapping>

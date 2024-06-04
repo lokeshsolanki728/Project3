@@ -99,7 +99,10 @@
 				Iterator<MarksheetDTO> it = list.iterator();
 				if (list.size() != 0) {
 			%>
-	</br>
+
+
+
+			</br>
 			<div style="margin-left: 87%;" class="pb-2">
 
 				<a href="/project_3/ctl/JasperCtl" class="btn btn-lg btn-warning"
@@ -112,7 +115,9 @@
 					<table class="table table-info" style="background-image: url('<%=ORSView.APP_CONTEXT%>/img/avatar-g92feff2a2_1920.webp');">
 						<thead>
 							<tr style="background-color: #8C8C8C;">
+
 								<th class="text">S.NO</th>
+
 								<th class="text">RollNo</th>
 								<th class="text">Name</th>
 								<th class="text">Physics</th>
@@ -126,8 +131,10 @@
 							while (it.hasNext()) {
 									dto = it.next();
 						%>
+
 						<tbody>
 							<tr>
+
 								<td align="center"><%=index++%></td>
 								<td align="center"><%=dto.getRollNo()%></td>
 								<td align="center"><%=dto.getName()%></td>
@@ -142,6 +149,7 @@
 									<%
 										float percentage = ((total * 100) / 300);
 									%> <%=percentage%>%</td>
+
 							</tr>
 						</tbody>
 						<%
@@ -155,11 +163,17 @@
 				<input type="submit" name="operation" class="btn btn-dark btn-md"
 					style="font-size: 17px" value="<%=MarksheetListCtl.OP_BACK%>">
 			</div>
+
+
+
 			<%
 				}
 			%>
-			<input type="hidden" name="pageNo" value="<%=pageNo%>">
-			 <input type="hidden" name="pageSize" value="<%=pageSize%>">
+
+			<input type="hidden" name="pageNo" value="<%=pageNo%>"> <input
+				type="hidden" name="pageSize" value="<%=pageSize%>">
+
+
 		</form>
 		<br> <br> <br>
 	</div>

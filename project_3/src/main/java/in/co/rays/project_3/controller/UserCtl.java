@@ -54,17 +54,21 @@ public class UserCtl extends BaseCtl {
 		
 		if (DataValidator.isNull(request.getParameter("firstName"))) {
 			request.setAttribute("firstName", PropertyReader.getValue("error.require", "first Name"));
+			System.out.println(pass);
 			pass = false;
 		} else if (!DataValidator.isName(request.getParameter("firstName"))) {
 			request.setAttribute("firstName", "first name must contains alphabets only");
+			System.out.println(pass);
 			pass = false;
 
 		}
 		if (DataValidator.isNull(request.getParameter("lastName"))) {
 			request.setAttribute("lastName", PropertyReader.getValue("error.require", "last Name"));
+			System.out.println(pass);
 			pass = false;
 		} else if (!DataValidator.isName(request.getParameter("lastName"))) {
 			request.setAttribute("lastName", "last name must contains alphabets only");
+			System.out.println(pass);
 			pass = false;
 
 		}
@@ -72,19 +76,23 @@ public class UserCtl extends BaseCtl {
 
 			if (DataValidator.isNull(request.getParameter("password"))) {
 				request.setAttribute("password", PropertyReader.getValue("error.require", "Password"));
+				System.out.println(pass);
 				pass = false;
 			} else if (!DataValidator.isPassword(request.getParameter("password"))) {
 				request.setAttribute("password", PropertyReader.getValue("Enter the valid Password"));
+				System.out.println(pass);
 				pass = false;
 			}
 
 			if (DataValidator.isNull(request.getParameter("confirmPassword"))) {
 				request.setAttribute("confirmPassword", PropertyReader.getValue("error.require", "Confirm Password"));
+				System.out.println(pass);
 				pass = false;
 			} 
-				  else if (!DataValidator.isPassword(request.getParameter("confirmPassword")))
-				  { request.setAttribute("confirmPassword",
-				  PropertyReader.getValue("Enter the valid confirmPassword")); pass = false; }
+				  else if (!DataValidator.isPassword(request.getParameter("confirmPassword"))){
+					  request.setAttribute("confirmPassword",PropertyReader.getValue("Enter the valid confirmPassword")); 
+					  pass = false; 
+					  }
 				 
 
 			else if (!request.getParameter("password").equals(request.getParameter("confirmPassword"))) {
@@ -129,6 +137,7 @@ public class UserCtl extends BaseCtl {
 		
 		System.out.println(request.getParameter("dob"));
 		System.out.println("validate end ");
+		System.out.println(pass);
 		return pass;
 
 	}
@@ -222,6 +231,7 @@ public class UserCtl extends BaseCtl {
 			try {
 				if (id > 0) {
 					model.update(dto);
+					
 					ServletUtility.setSuccessMessage("Data is successfully Update", request);
 				} else {
 					
@@ -240,6 +250,7 @@ public class UserCtl extends BaseCtl {
 
 				}
 				ServletUtility.setDto(dto, request);
+				
 				
 			} catch (ApplicationException e) {
 				log.error(e);

@@ -35,22 +35,26 @@ public class UserListCtl extends BaseCtl {
 	private static Logger log = Logger.getLogger(UserListCtl.class);
 
 	protected void preload(HttpServletRequest request) {
-		RoleModelInt rmodel = ModelFactory.getInstance().getRoleModel();
-		UserModelInt umodel = ModelFactory.getInstance().getUserModel();
+		RoleModelInt model = ModelFactory.getInstance().getRoleModel();
+		UserModelInt umodel= ModelFactory.getInstance().getUserModel();
+		
 		try {
-			List uList = umodel.list();
-			List rlist = rmodel.list();
-			request.setAttribute("roleList", rlist);
-			request.setAttribute("uList", uList);
+			List list = model.list();
+			List ulist = umodel.list();
+			request.setAttribute("roleList", list);
+			request.setAttribute("uList", ulist);
 		} catch (Exception e) {
 			log.error(e);
+
 		}
 	}
+
 	@Override
 	protected BaseDTO populateDTO(HttpServletRequest request) {
 		UserDTO dto = new UserDTO();
 
 		dto.setFirstName(DataUtility.getString(request.getParameter("firstName")));
+		//dto.setFirstName(DataUtility.getString(request.getParameter("fName")));
 
 		dto.setLastName(DataUtility.getString(request.getParameter("lastName")));
 		dto.setDob(DataUtility.getDate(request.getParameter("dob")));
@@ -182,7 +186,7 @@ public class UserListCtl extends BaseCtl {
 			next = model.search(dto, pageNo + 1, pageSize);
 
 			ServletUtility.setList(list, request);
-			//ServletUtility.setList(list, request);
+			ServletUtility.setList(list, request);
 			if (list == null || list.size() == 0) {
 				if (!OP_DELETE.equalsIgnoreCase(op)) {
 					ServletUtility.setErrorMessage("No record found ", request);

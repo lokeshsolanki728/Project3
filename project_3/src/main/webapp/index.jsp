@@ -8,30 +8,31 @@
 <!-- padding is used for space from top of the image and link
  -->
 <style>
+
 .p1 {
-	padding-top: 150px;
+	padding-top: 155px;
 }
-body {
-	background-image: url('img/Beach.jpeg');
-	background-size: cover;
+body{
+
+
+	 background-image: url('img/jeshoots.jpg');	
+	 background-size:100%;
 	background-repeat: no-repeat;
-}
-/* background image is for img and size is for cover entire area of container or web page and repeat 
-is for not repeating  the image
+} 
+/* background image is for img and size is for cover entire area of container or web page and repeat is for not repeating  the image
  */
+
 </style>
 <!-- img fluid to make responsive image accc to size of web page -->
-<body class="img-fluid">
+<body class="img-fluid" >
 	<div class="p1">
-		<label><h1 align="Center">
-				<img src="img/custom.png" width="420px" height="190px" border="0">
-			</h1>
-			<h1 align="Center">
-				<a href="<%=ORSView.WELCOME_CTL%>"
-					style="color: darkblue; text-decoration: none;"> <font
-					style="font-size: 60px;">Online
-						Result System</font></a>
-			</h1> </label>
+		<label><h1 align="Center" >
+			<img src="img/custom.png" width="420px" height="190px" border="0">
+		</h1 >
+		<h1 align="Center" >
+         <a href="<%=ORSView.WELCOME_CTL%>" style="color: red; text-decoration: none;"> <font style="font-size: 60px;">Online Result System</font></a>
+		</h1>
+		</label>
 	</div>
 </body>
 </html>

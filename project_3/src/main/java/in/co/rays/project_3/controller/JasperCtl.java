@@ -8,11 +8,12 @@ import java.util.ResourceBundle;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.hibernate.impl.SessionImpl;
+
 import in.co.rays.project_3.dto.UserDTO;
 import in.co.rays.project_3.util.HibDataSource;
 import in.co.rays.project_3.util.JDBCDataSource;
@@ -25,33 +26,40 @@ import net.sf.jasperreports.engine.JasperReport;
 /**
  * Jasper functionality Controller. Performs operation for Print pdf of
  * MarksheetMeriteList
- * 
  * @author Lokesh Solanki
  *
  */
 @WebServlet(name = "JasperCtl", urlPatterns = { "/ctl/JasperCtl" })
-public class JasperCtl extends HttpServlet{
+public class JasperCtl extends BaseCtl {
 
-	
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-
-			ResourceBundle rb = ResourceBundle.getBundle("in.co.rays.project_3.bundle.system");
-
 			
-			JasperReport jasperReport = JasperCompileManager.compileReport(rb.getString("jasper"));
+			ResourceBundle rb= ResourceBundle.getBundle("in.co.rays.project_3.bundle.system");
+			/* Compilation of jrxml file */
+			JasperReport jasperReport = JasperCompileManager
+					.compileReport(rb.getString("jasper"));
 
+			HttpSession session = request.getSession(true);
+			UserDTO dto = (UserDTO) session.getAttribute("user");
+			dto.getFirstName();
+			dto.getLastName();
 
-			Map map = new HashMap();
+			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("ID", 1l);
 			Connection conn = null;
 
-			String Database = rb.getString("DATABASE");
+			
 
+
+			String Database = rb.getString("DATABASE");
+			
 			if ("Hibernate".equalsIgnoreCase(Database)) {
 				conn = ((SessionImpl) HibDataSource.getSession()).connection();
 			}
@@ -60,11 +68,10 @@ public class JasperCtl extends HttpServlet{
 				conn = JDBCDataSource.getConnection();
 			}
 
-			/* jasper file or print manager */
-
+			/* Filling data into the report */
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, conn);
 
-			/* jasper export manager */
+			/* Export Jasper report */
 			byte[] pdf = JasperExportManager.exportReportToPdf(jasperPrint);
 
 			response.setContentType("application/pdf");
@@ -74,4 +81,15 @@ public class JasperCtl extends HttpServlet{
 
 		}
 	}
-} 
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+	}
+
+	@Override
+	protected String getView() {
+		return null;
+	}
+
+}

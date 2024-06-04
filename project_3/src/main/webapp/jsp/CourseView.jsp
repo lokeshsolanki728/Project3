@@ -12,20 +12,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Course view</title>
 <style type="text/css">
-
 i.css {
 	border: 2px solid #8080803b;
 	padding-left: 10px;
-	 padding-bottom: 11px; 
-	 background-color: #ebebe0;
+	padding-bottom: 11px;
+	background-color: #ebebe0;
 }
-.p4{
-background-image: url('<%=ORSView.APP_CONTEXT%>/img/bg3.png');
+
+.p4 {
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/bg3.png');
 	background-size: 100%;
 	padding-top: 6%;
 }
-
-
 </style>
 </head>
 <body class="p4">
@@ -46,12 +44,12 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/bg3.png');
 					<div class="card">
 						<div class="card-body">
 							<%
-							  long id=DataUtility.getLong(request.getParameter("id"));
-							
-							
-							if (dto.getId()!=null)  {
+								long id = DataUtility.getLong(request.getParameter("id"));
+
+								if (dto.getId() != null && id > 0) {
 							%>
-							<h3 class="text-center default-text text-primary">Update Course</h3>
+							<h3 class="text-center default-text text-primary">Update
+								Course</h3>
 							<%
 								} else {
 							%>
@@ -82,7 +80,7 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/bg3.png');
 									%>
 									<div class="alert alert-danger alert-dismissible">
 										<button type="button" class="close" data-dismiss="alert">&times;</button>
-											<%=ServletUtility.getErrorMessage(request)%>
+										<%=ServletUtility.getErrorMessage(request)%>
 									</div>
 									<%
 										}
@@ -100,81 +98,91 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/bg3.png');
 									value="<%=DataUtility.getTimestamp(dto.getModifiedDatetime())%>">
 							</div>
 							<div class="md-form">
-							  <span class="pl-sm-5"><b>Course Name</b><span style="color:red;">*</span></span>
+								<span class="pl-sm-5"><b>Course Name</b><span
+									style="color: red;">*</span></span> </br>
+								<div class="col-sm-12">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fa fa-book grey-text" style="font-size: 1rem;"></i>
+											</div>
+										</div>
+										<input type="text" class="form-control" name="courseName"
+											placeholder="Enter Course Name"
+											value="<%=DataUtility.getStringData(dto.getCourseName())%>">
+									</div>
+								</div>
+								<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("courseName", request)%></font></br>
+
+								<span class="pl-sm-5"><b>Duration</b><span
+									style="color: red;">*</span></span></br>
+								<div class="col-sm-12">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fa fa-clock grey-text" style="font-size: 1rem;"></i>
+											</div>
+										</div>
+
+										<%
+											HashMap map = new HashMap();
+											map.put("1 Year", "1 Year");
+											map.put("2 Year", "2 Year");
+											map.put("3 Year", "3 Year");
+											map.put("4 Year", "4 Year");
+											map.put("5 Year", "5 Year");
+											String HtmlList = HTMLUtility.getList("duration", dto.getDuration(), map);
+										%>
+										<%=HtmlList%></div>
+
+								</div>
+								<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("duration", request)%></font></br>
+
+
+								<span class="pl-sm-5"><b>Description</b><span
+									style="color: red;">*</span></span> </br>
+								<div class="col-sm-12">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fa fa-list grey-text" style="font-size: 1rem;"></i>
+											</div>
+										</div>
+										<textarea name="description" placeholder="Enter description"
+											class="form-control" rows="5" cols="5"><%=DataUtility.getStringData(dto.getDescription())%></textarea>
+
+									</div>
+								</div>
 								</br>
-		<div class="col-sm-12">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text"><i class="fa fa-book grey-text" style="font-size: 1rem;"></i> </div>
-        </div>
-        <input type="text" class="form-control" name="courseName" placeholder="Enter Course Name" value="<%=DataUtility.getStringData(dto.getCourseName())%>">
-      </div>
-    </div>
-	<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("courseName", request)%></font></br>							
-								
-	<span class="pl-sm-5"><b>Duration</b><span style="color:red;">*</span></span></br>
-	<div class="col-sm-12">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text"><i class="fa fa-clock grey-text" style="font-size: 1rem;"></i> </div>
-        </div>
-        
-									<%
-										HashMap map = new HashMap();
-										map.put("1 Year", "1 Year");
-										map.put("2 Year", "2 Year");
-										map.put("3 Year", "3 Year");
-										map.put("4 Year", "4 Year");
-										map.put("5 Year", "5 Year");
-										String HtmlList = HTMLUtility.getList("duration", dto.getDuration(), map);
-									%>
-									<%=HtmlList%></div>
-      
-    </div>		
-	<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("duration", request)%></font></br>
-								
-							
-								<span class="pl-sm-5"><b>Description</b><span style="color:red;">*</span></span>
-								</br> <div class="col-sm-12">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text"><i class="fa fa-list grey-text" style="font-size: 1rem;"></i> </div>
-        </div>
-       <textarea name="description" placeholder="Enter description" class="form-control"
-		 rows="5" cols="5"><%=DataUtility.getStringData(dto.getDescription())%></textarea>
+								<%
+									if (dto.getId() != null && id > 0) {
+								%>
+								<div class="text-center">
 
-      </div>
-    </div>
-							</br>
-							<%
-								if(id>0) {
-							%>
-							<div class="text-center">
+									<input type="submit" name="operation"
+										class="btn btn-success btn-md" style="font-size: 17px"
+										value="<%=CourseCtl.OP_UPDATE%>"> <input type="submit"
+										name="operation" class="btn btn-warning btn-md"
+										style="font-size: 17px" value="<%=CourseCtl.OP_CANCEL%>">
+								</div>
+								<%
+									} else {
+								%>
+								<div class="text-center">
 
-								<input type="submit" name="operation"
-									class="btn btn-success btn-md" style="font-size: 17px"
-									value="<%=CourseCtl.OP_UPDATE%>"> <input type="submit"
-									name="operation" class="btn btn-warning btn-md"
-									style="font-size: 17px" value="<%=CourseCtl.OP_CANCEL%>">
+									<input type="submit" name="operation"
+										class="btn btn-success btn-md" style="font-size: 17px"
+										value="<%=CourseCtl.OP_SAVE%>"> <input type="submit"
+										name="operation" class="btn btn-warning btn-md"
+										style="font-size: 17px" value="<%=CourseCtl.OP_RESET%>">
+								</div>
+								<%
+									}
+								%>
 							</div>
-							<%
-								} else {
-							%>
-							<div class="text-center">
-
-								<input type="submit" name="operation"
-									class="btn btn-success btn-md" style="font-size: 17px"
-									value="<%=CourseCtl.OP_SAVE%>"> <input type="submit"
-									name="operation" class="btn btn-warning btn-md"
-									style="font-size: 17px" value="<%=CourseCtl.OP_RESET%>">
-							</div>
-							<%
-								}
-							%>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-4 mb-4"></div>
+					<div class="col-md-4 mb-4"></div>
 				</div>
 		</form>
 		</main>

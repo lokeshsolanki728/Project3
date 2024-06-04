@@ -23,7 +23,7 @@ i.css {
 
 .input-group-addon {
 	/* box-shadow: 9px 8px 7px #001a33; */
-	background-image: linear-gradient(to bottom right, blue, orange, black);
+	background-image: linear-gradient(to bottom right, orange, black);
 	background-repeat: no repeat;
 	background-size: 100%;
 	padding-bottom: 11px;
@@ -153,7 +153,7 @@ i.css {
 
 								<span class="pl-sm-5"><b>Password</b> <span
 									style="color: red;">*</span></span> </br>
-								<div class="col-sm-12">R
+								<div class="col-sm-12">
 									<div class="input-group">
 										<div class="input-group-prepend">
 											<div class="input-group-text">
@@ -273,7 +273,7 @@ i.css {
 								</div>
 								<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("dob", request)%></font></br>
 								<%
-									if (id > 0 && dto.getId() != null) {
+									if (dto.getId() != null && id > 0) {
 								%>
 
 								<div class="text-center">

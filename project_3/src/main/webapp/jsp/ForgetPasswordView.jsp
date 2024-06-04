@@ -17,30 +17,19 @@
 i.css {
 	border: 2px solid #8080803b;
 	padding-left: 10px;
-	padding-bottom: 11px;
-	background-color: #ebebe0;
+	 padding-bottom: 11px; 
+	 background-color: #ebebe0;
 }
 
-.p4 {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/welc.jpg');
+.p4{
+background-image: url('<%=ORSView.APP_CONTEXT%>/img/unsplash.jpg');
 	background-size: 100%;
 	padding-top: 6%;
-	.
-	input-group-addon
-	{
-	box-shadow
-	:
-	7px
-	7px
-	7px;
-}
+
+.input-group-addon {
+	/* box-shadow: 9px 8px 7px #001a33 */;
 
 }
-.grad {
-	background-image: linear-gradient(to bottom right, #41C9E2, white, #41C9E2);
-	background-repeat: no repeat;
-	background-size: 100%;
-	padding-bottom: 11px;
 }
 </style>
 </head>
@@ -57,40 +46,37 @@ i.css {
 				<!-- Grid column -->
 				<div class="col-md-4"></div>
 				<div class="col-md-4">
-					<div class="card input-group-addon grad">
+					<div class="card input-group-addon">
 						<div class="card-body">
-							<h3 class="text-center default-text text-primary">Forget
-								Your Password?</h3>
-							<p class="text-center default-text text-info"
-								style="font-size: 11px;">Submit your Email Address and we
-								will Send You password</p>
+							<h3 class="text-center default-text text-primary">Forget Your Password?</h3>
+							<p class="text-center default-text text-info" style="font-size:11px;"> Submit your Email Address and we will Send You password</p>
 
 							<H4 align="center">
-								<%
-									if (!ServletUtility.getSuccessMessage(request).equals("")) {
-								%>
-								<div class="alert alert-success alert-dismissible">
-									<button type="button" class="close" data-dismiss="alert">&times;</button>
-									<%=ServletUtility.getSuccessMessage(request)%>
-								</div>
-								<%
-									}
-								%>
-							</H4>
+									<%
+										if (!ServletUtility.getSuccessMessage(request).equals("")) {
+									%>
+									<div class="alert alert-success alert-dismissible">
+										<button type="button" class="close" data-dismiss="alert">&times;</button>
+										<%=ServletUtility.getSuccessMessage(request)%>
+									</div>
+									<%
+										}
+									%>
+								</H4>
 
-							<H4 align="center">
-								<%
-									if (!ServletUtility.getErrorMessage(request).equals("")) {
-								%>
-								<div class="alert alert-danger alert-dismissible">
-									<button type="button" class="close" data-dismiss="alert">&times;</button>
-									<%=ServletUtility.getErrorMessage(request)%>
-								</div>
-								<%
-									}
-								%>
+								<H4 align="center">
+									<%
+										if (!ServletUtility.getErrorMessage(request).equals("")) {
+									%>
+									<div class="alert alert-danger alert-dismissible">
+										<button type="button" class="close" data-dismiss="alert">&times;</button>
+											<%=ServletUtility.getErrorMessage(request)%>
+									</div>
+									<%
+										}
+									%>
 
-							</H4>
+								</H4>
 							<!--Body-->
 							<div>
 
@@ -107,36 +93,38 @@ i.css {
 									value="<%=DataUtility.getTimestamp(bean.getModifiedDatetime())%>">
 							</div>
 							<div class="md-form input-group-addon">
-								<span class="pl-sm-5"><b>Email Id</b><span
-									style="color: red;">*</span></span></br>
-								<div class="col-sm-12">
-									<div class="input-group">
-										<div class="input-group-prepend">
-											<div class="input-group-text">
-												<i class="fa fa-envelope grey-text" style="font-size: 1rem;"></i>
-											</div>
-										</div>
-										<input type="text" class="form-control" name="login"
-											id="defaultForm-pass" placeholder="Enter email"
-											value="<%=DataUtility.getStringData(bean.getLogin())%>">
-									</div>
-								</div>
-								<font color="red" class="pl-sm-5"><%=ServletUtility.getErrorMessage("login", request)%></font></br>
+							<span class="pl-sm-5"><b>Email Id</b><span style="color:red;">*</span></span></br>
+		<div class="col-sm-12">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fa fa-envelope grey-text" style="font-size: 1rem;"></i> </div>
+        </div>
+        <input type="text" class="form-control" name="login" id="defaultForm-pass" placeholder="Enter email" value="<%=DataUtility.getStringData(bean.getLogin())%>">
+      </div>
+    </div>
+	<font color="red" class="pl-sm-5"><%=ServletUtility.getErrorMessage("login", request)%></font></br>						
+							 
+								
 
-								<div class="text-center pb-sm-2">
+							<div class="text-center">
 
-									<input type="submit" name="operation"
-										class="btn btn-primary btn-md" style="font-size: 16px"
-										value="<%=ForgetPasswordCtl.OP_GO%>">
-								</div>
+								<input type="submit" name="operation"
+									class="btn btn-success btn-md" style="font-size:16px"
+									value="<%=ForgetPasswordCtl.OP_GO%>" >
 							</div>
+
 						</div>
 					</div>
-					<div class="col-md-4 mb-4"></div>
 				</div>
+				<div class="col-md-4 mb-4"></div>
+				</div>
+				
 		</form>
 		</main>
+
+
 	</div>
+
 </body>
 <%@include file="FooterView.jsp"%>
 

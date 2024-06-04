@@ -44,7 +44,8 @@ public class UserModelHibImp implements UserModelInt {
 		System.out.println("in addddddddddddd");
 		/* log.debug("usermodel hib start"); */
 
-		UserDTO existDto = findByLogin(dto.getLogin());
+		UserDTO existDto = null;
+		existDto = findByLogin(dto.getLogin());
 		if (existDto != null) {
 			throw new DuplicateRecordException("login id already exist");
 		}
@@ -55,21 +56,7 @@ public class UserModelHibImp implements UserModelInt {
 			tx = session.beginTransaction();
 
 			session.save(dto);
-			HashMap<String, String> map = new HashMap<String, String>();
 
-			map.put("login", dto.getLogin());
-			map.put("password", dto.getPassword());
-
-			String message = EmailBuilder.getUserRegistrationMessage(map);
-
-			EmailMessage msg = new EmailMessage();
-
-			msg.setTo(dto.getLogin());
-			msg.setSubject("User Registerd Successfully.");
-			msg.setMessage(message);
-			msg.setMessageType(EmailMessage.HTML_MSG);
-
-			EmailUtility.sendMail(msg);
 			dto.getId();
 			tx.commit();
 		} catch (HibernateException e) {
@@ -84,7 +71,6 @@ public class UserModelHibImp implements UserModelInt {
 			session.close();
 		}
 		/* log.debug("Model add End"); */
-		
 		return dto.getId();
 
 	}
@@ -269,6 +255,8 @@ public class UserModelHibImp implements UserModelInt {
 	 * @throws ApplicationException the application exception
 	 */
 	public List search(UserDTO dto, int pageNo, int pageSize) throws ApplicationException {
+		// TODO Auto-generated method stub
+
 		System.out.println(
 				"hellllo" + pageNo + "....." + pageSize + "........" + dto.getId() + "......" + dto.getRoleId());
 
@@ -298,7 +286,7 @@ public class UserModelHibImp implements UserModelInt {
 					criteria.add(Restrictions.like("gender", dto.getGender() + "%"));
 				}
 				if (dto.getDob() != null && dto.getDob().getDate() > 0) {
-					criteria.add(Restrictions.eq("dob", dto.getDob()));
+					criteria.add(Restrictions.like("dob", dto.getDob()));
 				}
 				if (dto.getLastLogin() != null && dto.getLastLogin().getTime() > 0) {
 					criteria.add(Restrictions.eq("lastLogin", dto.getLastLogin()));
@@ -446,6 +434,7 @@ public class UserModelHibImp implements UserModelInt {
 		map.put("lastName", userData.getLastName());
 
 		String message = EmailBuilder.getForgetPasswordMessage(map);
+
 		EmailMessage msg = new EmailMessage();
 
 		msg.setTo(login);

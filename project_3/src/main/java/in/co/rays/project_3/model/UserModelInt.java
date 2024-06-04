@@ -12,7 +12,6 @@ import in.co.rays.project_3.exception.RecordNotFoundException;
  * @author Lokesh Solanki
  *
  */
-
 public interface UserModelInt {
 public long add(UserDTO dto)throws ApplicationException,DuplicateRecordException;
 public void delete(UserDTO dto)throws ApplicationException;
@@ -29,4 +28,5 @@ public boolean forgetPassword(String login)throws ApplicationException, RecordNo
 public boolean resetPassword(UserDTO dto)throws ApplicationException,RecordNotFoundException;
 public long registerUser(UserDTO dto)throws ApplicationException,DuplicateRecordException;
 public List getRoles(UserDTO dto)throws ApplicationException;
+
 }

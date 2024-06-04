@@ -8,11 +8,18 @@ public interface ORSView {
 	public String JAVA_DOC_VIEW = APP_CONTEXT + "/doc/index.html";
 
 	public String ERROR_VIEW = PAGE_FOLDER + "/ErrorView404.jsp";
+	public String Employee_VIEW = PAGE_FOLDER + "/EmployeeView.jsp";
+	public String Employee_LIST_VIEW = PAGE_FOLDER + "/EmployeeListView.jsp";
 
-
+	public String BANK_VIEW = PAGE_FOLDER + "/BankView.jsp";
+	public String BANK_LIST_VIEW = PAGE_FOLDER + "/BankListView.jsp";
 	public String MARKSHEET_VIEW = PAGE_FOLDER + "/MarksheetView.jsp";
-
 	public String MARKSHEET_LIST_VIEW = PAGE_FOLDER + "/MarksheetListView.jsp";
+	
+	
+	public String JOB_VIEW = PAGE_FOLDER + "/JobView.jsp";
+	public String JOB_LIST_VIEW = PAGE_FOLDER + "/JobListView.jsp";
+	
 	public String GET_MARKSHEET_VIEW = PAGE_FOLDER + "/GetMarksheetView.jsp";
 	public String USER_VIEW = PAGE_FOLDER + "/UserView.jsp";
 	public String USER_LIST_VIEW = PAGE_FOLDER + "/UserListView.jsp";
@@ -41,7 +48,15 @@ public interface ORSView {
 	
 	
 	public String ERROR_CTL = APP_CONTEXT +"/ErrorCtl";
-
+	public String Employee_CTL = APP_CONTEXT + "/ctl/EmployeeCtl";
+	public String Employee_LIST_CTL = APP_CONTEXT + "/ctl/EmployeeListCtl";
+	
+	public String BANK_CTL = APP_CONTEXT + "/ctl/BankCtl";
+	public String BANK_LIST_CTL = APP_CONTEXT + "/ctl/BankListCtl";
+	
+	public String JOB_CTL = APP_CONTEXT + "/ctl/JobCtl";
+	public String JOB_LIST_CTL = APP_CONTEXT + "/ctl/JobListCtl";
+	
 	public String MARKSHEET_CTL = APP_CONTEXT + "/ctl/MarksheetCtl";
 	public String MARKSHEET_LIST_CTL = APP_CONTEXT + "/ctl/MarksheetListCtl";
 	public String USER_CTL = APP_CONTEXT + "/ctl/UserCtl";

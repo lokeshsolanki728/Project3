@@ -149,8 +149,8 @@ public class UserRegistrationCtl extends BaseCtl {
 		if(OP_SIGN_UP.equalsIgnoreCase(op)){
 			UserDTO dto=(UserDTO) populateDTO(request);
 			try {
-				userModel.add(dto);
-				//long pk=userModel.registerUser(dto);
+				//userModel.add(dto);
+				long pk=userModel.registerUser(dto);
 				ServletUtility.setDto(dto, request);
 				ServletUtility.setSuccessMessage("Registration successfully", request);
 			} catch (DuplicateRecordException e) {

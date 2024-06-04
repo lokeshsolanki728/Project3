@@ -7,17 +7,19 @@
 <style type="text/css">
 .footer {
 	position: fixed;
+	left: 0;
 	bottom: 0;
 	width: 100%;
+	color: white;
 	text-align: center;
-	background-color: #6491c5;
+	background-color: gray;
 }
 </style>
 </head>
 <body>
-	<div class="footer">
+	<div class="footer ">
 		<center>
-			<font color="black" style="font-family: cursive;">
+			<font color="black">
 				<h5>&copy; RAYS Technologies</h5>
 			</font>
 		</center>

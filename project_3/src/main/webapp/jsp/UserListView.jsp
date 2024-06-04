@@ -1,3 +1,4 @@
+
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="in.co.rays.project_3.model.ModelFactory"%>
@@ -19,10 +20,10 @@
 	src="<%=ORSView.APP_CONTEXT%>/js/CheckBox11.js"></script>
 <style>
 .hm {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/new pro11.jpg');
-	background-size: 100%;
-    background-attachment: fixed;
-	
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/rain.jpg');
+	background-size: cover;
+	background-repeat: no-repeate;
+	padding-top: 6%;
 }
 
 .p1 {
@@ -34,25 +35,20 @@
 .text {
 	text-align: center;
 }
-
 </style>
-<nav class="fixed-top">
-<%@include file="Header.jsp"%></nav>
-<br>
-<br>
-<br>
 </head>
+
 <body class="hm">
-
-		<%@include file="calendar.jsp" %>
-
-
+	<%@include file="Header.jsp"%>
+	<%@include file="calendar.jsp"%>
+	<div></div>
 	<div>
 		<form class="pb-5" action="<%=ORSView.USER_LIST_CTL%>" method="post">
 			<jsp:useBean id="dto" class="in.co.rays.project_3.dto.UserDTO"
 				scope="request"></jsp:useBean>
 			<%
 				List list1 = (List) request.getAttribute("roleList");
+			List uList = (List) request.getAttribute("uList");
 			%>
 
 
@@ -70,8 +66,8 @@
 				if (list.size() != 0) {
 			%>
 			<center>
-				<h1 class=" font-weight-bold pt-3">
-				User List
+				<h1 class="text-primary font-weight-bold pt-3">
+					<u>User List</u>
 				</h1>
 			</center>
 			<div class="row">
@@ -112,46 +108,56 @@
 
 			<div class="row">
 
+
 				<div class="col-sm-2"></div>
-				<div class="col-sm-2 ">
-					<input type="text" name="firstName" placeholder="Enter FirstName"
-						class="form-control" border="1"
+				<div class="col-sm-2">
+					<input type="text" name="firstName" placeholder="Enter First Name"
+						class="form-control"
 						value="<%=ServletUtility.getParameter("firstName", request)%>">
 				</div>
+
 				&emsp;
-				<div class="col-md-2">
+				<div class="col-sm-2">
 					<input type="text" name="login" placeholder="Enter Login Id"
 						class="form-control"
 						value="<%=ServletUtility.getParameter("login", request)%>">
 				</div>
 				&emsp;
 				<div class="col-sm-2"><%=HTMLUtility.getList("Role", String.valueOf(dto.getRoleId()), list1)%></div>
-
-                &emsp;
-             <%--    <div>
-				<input type="text" name="dob" placeholder="Enter dob" id="udate"
-						readonly="readonly"
-						class="form-control"
-						value="<%=ServletUtility.getParameter("dob", request)%>">
-					</div>	 --%>
+				&emsp;
+				<%-- &emsp;
+				<div class="col-sm-2"><%=HTMLUtility.getList("fName", String.valueOf(dto.getFirstName()), uList)%></div>
+				&emsp; --%>
+			<%-- 		
+				<div class="col-sm-2">
+					<input type="text" name="dob" class="form-control" placeholder="Enter Date Of Birth" id="datepicker" readonly="readonly"
+							value="<%=DataUtility.getDateString(dto.getDob())%>">
+				</div> --%>
+					<%-- <div class="col-sm-2">
+					<input type="text" name="dob" class="form-control" placeholder="Enter Date Of Birth"
+							value="<%=DataUtility.getDateString(dto.getDob())%>">
+				</div>
+ --%>
 				<div class="col-sm-2">
 					<input type="submit" class="btn btn-primary btn-md"
 						style="font-size: 15px" name="operation"
-						value="<%=UserListCtl.OP_SEARCH%>">&emsp; <input
+						value="<%=UserListCtl.OP_SEARCH%>"> &emsp; <input
 						type="submit" class="btn btn-dark btn-md" style="font-size: 15px"
 						name="operation" value="<%=UserListCtl.OP_RESET%>">
 				</div>
+
+
 				<div class="col-sm-2"></div>
 			</div>
 
 			</br>
 			<div style="margin-bottom: 20px;" class="table-responsive">
-				<table class="table table-bordered table-primary table-hover">
+				<table class="table table-bordered table-dark table-hover">
 					<thead>
-						<tr style="background-color: gray;">
+						<tr style="background-color: blue;">
 
 							<th width="10%"><input type="checkbox" id="select_all"
-								name="Select" class="checkbox"> Select All</th>
+								name="Select" class="text"> Select All</th>
 							<th width="5%" class="text">S.NO</th>
 							<th width="15%" class="text">FirstName</th>
 							<th width="15%" class="text">LastName</th>
@@ -174,8 +180,8 @@
 								name="ids" value="<%=dto.getId()%>"
 								<%if (dto.getRoleId() == RoleDTO.ADMIN) {%> <%="disabled"%>
 								<%}%>></td>
-							<td class="text"><b><%=index++%></b></td>
-							<td class="text"><i><%=dto.getFirstName()%></i></td>
+							<td class="text"><%=index++%></td>.
+							<td class="text"><%=dto.getFirstName()%></td>
 							<td class="text"><%=dto.getLastName()%></td>
 							<td class="text"><%=dto.getLogin()%></td>
 							<td class="text"><%=dto.getGender()%></td>
@@ -197,13 +203,11 @@
 						class="btn btn-warning btn-md" style="font-size: 17px"
 						value="<%=UserListCtl.OP_PREVIOUS%>"
 						<%=pageNo > 1 ? "" : "disabled"%>></td>
-						
-						
+
 					<td><input type="submit" name="operation"
 						class="btn btn-primary btn-md" style="font-size: 17px"
 						value="<%=UserListCtl.OP_NEW%>"></td>
-						
-						
+
 					<td><input type="submit" name="operation"
 						class="btn btn-danger btn-md" style="font-size: 17px"
 						value="<%=UserListCtl.OP_DELETE%>"></td>
@@ -221,7 +225,7 @@
 				if (list.size() == 0) {
 			%>
 			<center>
-				<h1 style="font-size: 40px; color: white;"><b>User List</b></h1>
+				<h1 style="font-size: 40px; color: #162390;">User List</h1>
 			</center>
 			</br>
 			<div class="row">

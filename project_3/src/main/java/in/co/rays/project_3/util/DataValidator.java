@@ -232,6 +232,23 @@ public class DataValidator {
 			return false;
 		}
 	}
+	public static boolean isAccountNo(String val) {
+
+		String phonereg = "^\\d{6,12}$";
+//			String phonereg = "^[6-9]{10}$";
+
+		if (isNotNull(val)) {
+			try {
+				return val.matches(phonereg);
+			} catch (NumberFormatException e) {
+				return false;
+			}
+
+		} else {
+			return false;
+		}
+	}
+
 
 	/**
 	 * Checks if value of Mobile No is 10

@@ -53,7 +53,7 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/wback.jpg');
 							<%
 								long id = DataUtility.getLong(request.getParameter("id"));
 
-								if (dto.getId()!=null) {
+								if (dto.getId()!=null&&id>0) {
 							%>
 							<h3 class="text-center default-text text-primary">Update Student</h3>
 							<%
@@ -177,7 +177,7 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/wback.jpg');
     </div>	
 	<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("dob", request)%></font></br>
 							<%
-									if(id>0) {
+									if(dto.getId()!=null&&id>0) {
 								%>
 								<div class="text-center">
 

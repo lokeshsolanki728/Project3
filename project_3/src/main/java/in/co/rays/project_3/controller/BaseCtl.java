@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.log4j.Logger;
-
 import in.co.rays.project_3.dto.BaseDTO;
 import in.co.rays.project_3.dto.UserDTO;
 import in.co.rays.project_3.util.DataUtility;
@@ -24,8 +22,6 @@ public abstract class BaseCtl extends HttpServlet{
 	/**
 	 * 
 	 */
-	Logger log = Logger.getLogger(BaseCtl.class);
-	
 	private static final long serialVersionUID = 1L;
 	public static final String OP_SAVE = "Save";
 	public static final String OP_CANCEL = "Cancel";
@@ -120,7 +116,7 @@ public abstract class BaseCtl extends HttpServlet{
     @Override
     protected void service(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
-    	log.debug("BaseCtl service Method Started");
+
         // Load the preloaded data required to display at HTML form
         preload(request);
 
@@ -141,9 +137,8 @@ public abstract class BaseCtl extends HttpServlet{
                 return;
             }
         }
-        log.debug("BaseCtl Super Service method ");
         super.service(request, response);
-       // System.out.println("Service base");
+        System.out.println("Service base");
     }
 
     /**

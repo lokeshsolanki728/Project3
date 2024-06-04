@@ -3,28 +3,30 @@ package in.co.rays.project_3.model;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
-
 /**
  * ModelFactory decides which model implementation run
+ * 
  * @author Lokesh Solanki
  */
 public final class ModelFactory {
 
 	private static ResourceBundle rb = ResourceBundle.getBundle("in.co.rays.project_3.bundle.system");
 	private static final String DATABASE = rb.getString("DATABASE");
-	
+
 	private static ModelFactory mFactory = null;
 	private static HashMap modelCache = new HashMap();
 
 	private ModelFactory() {
 
 	}
+
 	public static ModelFactory getInstance() {
 		if (mFactory == null) {
 			mFactory = new ModelFactory();
 		}
 		return mFactory;
 	}
+
 	public MarksheetModelInt getMarksheetModel() {
 		MarksheetModelInt marksheetModel = (MarksheetModelInt) modelCache.get("marksheetModel");
 		if (marksheetModel == null) {
@@ -37,6 +39,19 @@ public final class ModelFactory {
 			modelCache.put("marksheetModel", marksheetModel);
 		}
 		return marksheetModel;
+	}
+	public JobModelInt getJobModel() {
+		JobModelInt jobModel = (JobModelInt) modelCache.get("jobModel");
+		if (jobModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				jobModel = new JobModelHibImpl();
+			}
+			if ("JDBC".equals(DATABASE)) {
+				jobModel = new JobModelHibImpl();
+			}
+			modelCache.put("jobModel", jobModel);
+		}
+		return jobModel;
 	}
 
 	public CollegeModelInt getCollegeModel() {
@@ -68,6 +83,7 @@ public final class ModelFactory {
 		}
 		return roleModel;
 	}
+
 	public UserModelInt getUserModel() {
 
 		UserModelInt userModel = (UserModelInt) modelCache.get("userModel");
@@ -84,7 +100,7 @@ public final class ModelFactory {
 		return userModel;
 	}
 
-	public StudentModelInt getStudentModel() { 
+	public StudentModelInt getStudentModel() {
 		StudentModelInt studentModel = (StudentModelInt) modelCache.get("studentModel");
 		if (studentModel == null) {
 			if ("Hibernate".equals(DATABASE)) {
@@ -159,5 +175,37 @@ public final class ModelFactory {
 		}
 
 		return facultyModel;
+	}
+
+	public BankModelInt getBankModel() {
+
+		BankModelInt bankModel = (BankModelInt) modelCache.get("bankModel");
+		if (bankModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				bankModel = new BankModelHibImp();
+			}
+			/*
+			 * if ("JDBC".equals(DATABASE)) { bankModel = new UserModelJDBCImpl(); }
+			 */
+			modelCache.put("bankModel", bankModel);
+		}
+
+		return bankModel;
+	}
+
+	public EmployeeModelInt getEmployeeModel() {
+
+		EmployeeModelInt EmployeeModel = (EmployeeModelInt) modelCache.get("EmployeeModel");
+		if (EmployeeModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				EmployeeModel = new EmployeeModelHibImp();
+			}
+			/*
+			 * if ("JDBC".equals(DATABASE)) { bankModel = new UserModelJDBCImpl(); }
+			 */
+			modelCache.put("EmployeeModel", EmployeeModel);
+		}
+
+		return EmployeeModel;
 	}
 }

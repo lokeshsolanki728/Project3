@@ -11,10 +11,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Header</title>
-<link rel="stylesheet" 
-	  href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-	  integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-	  crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+	crossorigin="anonymous">
+
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -26,15 +27,12 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 <style type="text/css">
-.lokesh {
-	background-color: #00DBDE;
-background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
-
+.amit {
+	background-image: linear-gradient(to bottom right, Teal, white, Orange);
 }
 </style>
 </head>
 <body>
-
 	<%
 		UserDTO userDto = (UserDTO) session.getAttribute("user");
 		boolean userLoggedIn = userDto != null;
@@ -46,21 +44,18 @@ background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 			welcomeMsg += "Guest";
 		}
 	%>
-
 	<div class="header">
-		<nav class="navbar navbar-expand-lg fixed-top  lokesh">
-		
+		<nav class="navbar navbar-expand-lg fixed-top  amit">
 		 <a class="navbar-brand" href="<%=ORSView.WELCOME_CTL%>">
+
 		<img src="<%=ORSView.APP_CONTEXT%>/img/custom.png" width="190px"
 			height="50px"> </a>
-			
-		<button class="navbar-toggler " type="button" data-toggle="collapse"
+		 <button class="navbar-toggler " type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
 			aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"> <i class="fas fa-bars"
 				style="color:; font-size: 28px;"></i></span>
-				
-		</button>
+		</button> 
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="nav navbar-nav ml-auto">
 				<a class="nav-link" href="#"> <span class="sr-only">(current)</span>
@@ -78,7 +73,7 @@ background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item"
-							href="<%=ORSView.MARKSHEET_MERIT_LIST_CTL%>" style="color:rgb(70,130,180);"> <i
+							href="<%=ORSView.MARKSHEET_MERIT_LIST_CTL%>"><i
 								class=" far fa-file-alt"></i>Marksheet Merit List</a>
 					</div></li>
 
@@ -89,14 +84,57 @@ background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item"
-							href="<%=ORSView.MY_PROFILE_CTL%>"style="color:rgb(70,130,180);"><i class="fas fa-user-tie"></i>My
+							href="<%=ORSView.MY_PROFILE_CTL%>"><i class="fas fa-user-tie"></i>My
 								Profile</a> <a class="dropdown-item"
-							href="<%=ORSView.CHANGE_PASSWORD_CTL%>" style="color:rgb(70,130,180);"><i
+							href="<%=ORSView.CHANGE_PASSWORD_CTL%>"><i
 								class=" fa fa-file-alt"></i>Change Password</a>
 					</div></li>
 				<%
 					} else if (userDto.getRoleId() == RoleDTO.ADMIN || userDto.getRoleId() == RoleDTO.COLLEGE_SCHOOL) {
 				%>
+				<%-- <li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: Black;">Employee</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.Employee_CTL%>"> <i
+							class="fas fa-user-circle"></i>Add Employee
+						</a> <a class="dropdown-item" href="<%=ORSView.Employee_LIST_CTL%>"><i
+							class="fas fa-user-friends"></i>Employee List</a>
+					</div></li>
+					
+					
+				 <li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: Black;">Bank</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.BANK_CTL%>"> <i
+							class="fas fa-user-circle"></i>Add Bank
+						</a> <a class="dropdown-item" href="<%=ORSView.BANK_LIST_CTL%>"><i
+							class="fas fa-user-friends"></i>Bank List</a>
+					</div></li>  --%>
+					
+					
+					
+					
+					
+					<li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: Black;">JobRequirement</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.JOB_CTL%>"> <i
+							class="fas fa-user-circle"></i>Add JobRequirement
+						</a> <a class="dropdown-item" href="<%=ORSView.JOB_LIST_CTL%>"><i
+							class="fas fa-user-friends"></i>JobRequirement List</a>
+					</div></li> 
+					
+					
+					
 
 				<li class="nav-item dropdown" style="padding-left: 5px;"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -104,9 +142,9 @@ background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 					aria-expanded="false"> <font style="color: Black;">User</font>
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="<%=ORSView.USER_CTL%>"style="color:rgb(70,130,180);"> <i
+						<a class="dropdown-item" href="<%=ORSView.USER_CTL%>"> <i
 							class="fas fa-user-circle"></i>Add User
-						</a> <a class="dropdown-item" href="<%=ORSView.USER_LIST_CTL%>"style="color:rgb(70,130,180);"><i
+						</a> <a class="dropdown-item" href="<%=ORSView.USER_LIST_CTL%>"><i
 							class="fas fa-user-friends"></i>User List</a>
 					</div></li>
 
@@ -118,14 +156,14 @@ background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-						<a class="dropdown-item" href="<%=ORSView.MARKSHEET_CTL%>"style="color:rgb(70,130,180);"> <i
+						<a class="dropdown-item" href="<%=ORSView.MARKSHEET_CTL%>"> <i
 							class="far fa-file"></i>Add Marksheet
-						</a> <a class="dropdown-item" href="<%=ORSView.MARKSHEET_LIST_CTL%>"style="color:rgb(70,130,180);">
+						</a> <a class="dropdown-item" href="<%=ORSView.MARKSHEET_LIST_CTL%>">
 							<i class="fas fa-paste"></i>Marksheet List
 						</a> <a class="dropdown-item"
-							href="<%=ORSView.MARKSHEET_MERIT_LIST_CTL%>"style="color:rgb(70,130,180);"> <i
+							href="<%=ORSView.MARKSHEET_MERIT_LIST_CTL%>"> <i
 							class=" far fa-file-alt"></i> Marksheet Merit List
-						</a> <a class="dropdown-item" href="<%=ORSView.GET_MARKSHEET_CTL%>"style="color:rgb(70,130,180);">
+						</a> <a class="dropdown-item" href="<%=ORSView.GET_MARKSHEET_CTL%>">
 							<i class="far fa-copy"></i>Get Marksheet
 						</a>
 					</div></li>
@@ -136,9 +174,9 @@ background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 					aria-expanded="false"> <font style="color: Black;">Role</font>
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="<%=ORSView.ROLE_CTL%>"style="color:rgb(70,130,180);"> <i
+						<a class="dropdown-item" href="<%=ORSView.ROLE_CTL%>"> <i
 							class="fas fa-user-tie"></i>Add Role
-						</a> <a class="dropdown-item" href="<%=ORSView.ROLE_LIST_CTL%>"style="color:rgb(70,130,180);"><i
+						</a> <a class="dropdown-item" href="<%=ORSView.ROLE_LIST_CTL%>"><i
 							class="fas fa-user-friends"></i>Role List</a>
 					</div></li>
 				<li class="nav-item dropdown" style="padding-left: 5px"><a
@@ -147,9 +185,9 @@ background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 					aria-expanded="false"> <font style="color: Black;">College</font>
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="<%=ORSView.COLLEGE_CTL%>"style="color:rgb(70,130,180);"><i
+						<a class="dropdown-item" href="<%=ORSView.COLLEGE_CTL%>"><i
 							class="fas fa-university"></i>Add College</a> <a
-							class="dropdown-item" href="<%=ORSView.COLLEGE_LIST_CTL%>"style="color:rgb(70,130,180);"><i
+							class="dropdown-item" href="<%=ORSView.COLLEGE_LIST_CTL%>"><i
 							class="fas fa-building"></i>College List </a>
 					</div></li>
 				<li class="nav-item dropdown" style="padding-left: 5px"><a
@@ -158,9 +196,9 @@ background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 					aria-expanded="false"> <font style="color: Black;">Course
 					</font></a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="<%=ORSView.COURSE_CTL%>"style="color:rgb(70,130,180);"><i
+						<a class="dropdown-item" href="<%=ORSView.COURSE_CTL%>"><i
 							class="fas fa-book-open"></i>Add Course</a> <a class="dropdown-item"
-							href="<%=ORSView.COURSE_LIST_CTL%>"style="color:rgb(70,130,180);"><i
+							href="<%=ORSView.COURSE_LIST_CTL%>"><i
 							class="fas fa-sort-amount-down"></i>Course List </a>
 					</div></li>
 				<li class="nav-item dropdown" style="padding-left: 5px"><a
@@ -169,9 +207,9 @@ background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 					aria-expanded="false"> <font style="color: Black;">Student</font>
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="<%=ORSView.STUDENT_CTL%>"style="color:rgb(70,130,180);"><i
+						<a class="dropdown-item" href="<%=ORSView.STUDENT_CTL%>"><i
 							class="far fa-user-circle"></i>Add Student</a> <a
-							class="dropdown-item" href="<%=ORSView.STUDENT_LIST_CTL%>"style="color:rgb(70,130,180);"><i
+							class="dropdown-item" href="<%=ORSView.STUDENT_LIST_CTL%>"><i
 							class="fas fa-users"></i>Student List</a>
 					</div></li>
 				<li class="nav-item dropdown" style="padding-left: 5px"><a
@@ -180,9 +218,9 @@ background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 					aria-expanded="false"> <font style="color: Black;">Faculty
 					</font></a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="<%=ORSView.FACULTY_CTL%>"style="color:rgb(70,130,180);"><i
+						<a class="dropdown-item" href="<%=ORSView.FACULTY_CTL%>"><i
 							class="fas fa-user-tie"></i>Add Faculty</a> <a class="dropdown-item"
-							href="<%=ORSView.FACULTY_LIST_CTL%>"style="color:rgb(70,130,180);"><i class=" fas fa-users"></i>Faculty
+							href="<%=ORSView.FACULTY_LIST_CTL%>"><i class=" fas fa-users"></i>Faculty
 							List</a>
 					</div></li>
 
@@ -193,9 +231,9 @@ background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 							Table</font>
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="<%=ORSView.TIMETABLE_CTL%>"style="color:rgb(70,130,180);"><i
+						<a class="dropdown-item" href="<%=ORSView.TIMETABLE_CTL%>"><i
 							class="fas fa-clock"></i>Add TimeTable</a> <a class="dropdown-item"
-							href="<%=ORSView.TIMETABLE_LIST_CTL%>"style="color:rgb(70,130,180);"><i
+							href="<%=ORSView.TIMETABLE_LIST_CTL%>"><i
 							class="far fa-clock"></i>TimeTable List</a>
 					</div></li>
 				<li class="nav-item dropdown" style="padding-left: 5px"><a
@@ -204,9 +242,9 @@ background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 					aria-expanded="false"> <font style="color: Black;">Subject</font>
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="<%=ORSView.SUBJECT_CTL%>"style="color:rgb(70,130,180);"><i
+						<a class="dropdown-item" href="<%=ORSView.SUBJECT_CTL%>"><i
 							class="fas fa-calculator"></i>Add Subject</a> <a
-							class="dropdown-item" href="<%=ORSView.SUBJECT_LIST_CTL%>"style="color:rgb(70,130,180);"> <i
+							class="dropdown-item" href="<%=ORSView.SUBJECT_LIST_CTL%>"> <i
 							class="fas fa-sort-amount-down"></i>Subject List
 						</a>
 					</div></li>
@@ -226,18 +264,18 @@ background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 							if (userLoggedIn) {
 						%>
 						<a class="dropdown-item"
-							href="<%=ORSView.LOGIN_CTL%>?operation=<%=LoginCtl.OP_LOG_OUT%>"style="color:rgb(70,130,180);"><i
+							href="<%=ORSView.LOGIN_CTL%>?operation=<%=LoginCtl.OP_LOG_OUT%>"><i
 							class="fas fa-sign-out-alt"></i>Logout </a> <a class="dropdown-item"
-							href="<%=ORSView.MY_PROFILE_CTL%>"style="color:rgb(70,130,180);"><i class="fas fa-user-tie"></i>My
+							href="<%=ORSView.MY_PROFILE_CTL%>"><i class="fas fa-user-tie"></i>My
 							Profile</a> <a class="dropdown-item"
-							href="<%=ORSView.CHANGE_PASSWORD_CTL%>"style="color:rgb(70,130,180);"> <i
+							href="<%=ORSView.CHANGE_PASSWORD_CTL%>"> <i
 							class="fas fa-edit"></i>Change Password
 						</a>
 						<%
 							if (userDto.getId() == RoleDTO.ADMIN) {
 						%>
 						<a class="dropdown-item" target="blank"
-							href="<%=ORSView.JAVA_DOC_VIEW%>"style="color:rgb(70,130,180);"> <i class="fas fa-clone"></i>Java
+							href="<%=ORSView.JAVA_DOC_VIEW%>"> <i class="fas fa-clone"></i>Java
 							Doc
 						</a>
 						<%
@@ -246,9 +284,9 @@ background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 						<%
 							} else {
 						%>
-						<a class="dropdown-item" href="<%=ORSView.LOGIN_CTL%>" style="color:rgb(70,130,180);"><i
-							class="fas fa-sign-in-alt"><b> Login</b></i></a>
-							 <a class="dropdown-item" href="<%=ORSView.USER_REGISTRATION_CTL%>" style="color:rgb(70,130,180);"><i
+						<a class="dropdown-item" href="<%=ORSView.LOGIN_CTL%>"><i
+							class="fas fa-sign-in-alt"><b> Login</b></i></a> <a
+							class="dropdown-item" href="<%=ORSView.USER_REGISTRATION_CTL%>"><i
 							class="fas fa-registered"><b> User Registration</b></i></a>
 					</div></li>
 				<%

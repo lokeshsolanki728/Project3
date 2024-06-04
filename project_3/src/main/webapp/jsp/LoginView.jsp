@@ -11,8 +11,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login view</title>
-<link rel="icon" type="image/x-icon" href="/img/logo.png">
+ <link rel="icon" type="image/x-icon" href="/img/logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -22,54 +23,37 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
+
+
 <style type="text/css">
 .log1 {
-	padding-top: 8%;
+	padding-top: 6%;
 }
 
-.Shadow {
-	box-shadow: 9px 8px 7px #001a33;
+.input-group-addon {
+	 box-shadow: 9px 8px 7px #001a33; 
+	
 }
-
-.grad {
-	background-image: linear-gradient(to bottom right, #41C9E2, white, #41C9E2);
-	background-repeat: no repeat;
-	background-size: 100%;
-	padding-bottom: 11px;
+.grad{
+background-image: linear-gradient(to bottom right, Teal, MistyRose, Black );
+background-repeat: no repeat;
+background-size: 100%;
+padding-bottom: 11px;
 }
-
 i.css {
 	border: 2px solid #8080803b;
 	padding-left: 10px;
+	
 	background-color: #ebebe0;
 }
 
-.btn-grad {
-	background-image: linear-gradient(to right, #5C258D 0%, #4389A2 51%, #5C258D 100%);
-	margin: 10px;
-	padding: 15px 45px;
-	text-align: center;
-	text-transform: uppercase;
-	transition: 0.5s;
-	background-size: 200% auto;
-	color: white;
-	box-shadow: 0 0 20px #eee;
-	border-radius: 10px;
-	display: block;
-}
-
-.btn-grad:hover {
-	background-position: right center;
-	/* change the direction of the change here */
-	color: #fff;
-	text-decoration: none;
-}
-
 .p4 {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/email.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/unsplash.jpg');
 	background-size: cover;
 	background-repeat: no repeat;
-	class: "img-responsive";
+	class= "img-responsive";
+	
+	
 }
 </style>
 </head>
@@ -78,6 +62,7 @@ i.css {
 		<%@include file="Header.jsp"%>
 	</div>
 	<div>
+
 		<main>
 		<form action="<%=ORSView.LOGIN_CTL%>" method="post">
 
@@ -85,11 +70,13 @@ i.css {
 				<!-- Grid column -->
 				<div class="col-md-4 "></div>
 				<div class="col-md-4">
-					<div class="card Shadow grad	">
+					<div class="card input-group-addon grad	">
 						<div class="card-body">
-							<h3 class="text-center text-black">Login</h3>
+
+							<h3 class="text-center ">Login</h3>
 							<!--Body-->
 							<div>
+
 								<jsp:useBean id="dto" class="in.co.rays.project_3.dto.UserDTO"
 									scope="request"></jsp:useBean>
 								<H4 align="center">
@@ -104,6 +91,7 @@ i.css {
 										}
 									%>
 								</H4>
+
 								<H4 align="center">
 									<%
 										if (!ServletUtility.getErrorMessage(request).equals("")) {
@@ -115,10 +103,13 @@ i.css {
 									<%
 										}
 									%>
+
 								</H4>
 								<%
 									String uri = (String) request.getAttribute("uri");
 								%>
+
+
 								<input type="hidden" name="id" value="<%=dto.getId()%>">
 								<input type="hidden" name="createdBy"
 									value="<%=dto.getCreatedBy()%>"> <input type="hidden"
@@ -128,6 +119,7 @@ i.css {
 								<input type="hidden" name="modifiedDatetime"
 									value="<%=DataUtility.getTimestamp(dto.getModifiedDatetime())%>">
 							</div>
+
 							<span class="pl-sm-5"><b>Email Id</b> <span
 								style="color: red;">*</span></span> </br>
 
@@ -138,11 +130,12 @@ i.css {
 											<i class="fa fa-envelope grey-text" style="font-size: 1rem;"></i>
 										</div>
 									</div>
-									<input type="text" class="form-control Shadow"
-										name="login" placeholder="Enter email"
+									<input type="text" class="form-control input-group-addon" name="login"
+										placeholder="Enter email"
 										value="<%=DataUtility.getStringData(dto.getLogin())%>">
 								</div>
 							</div>
+							
 							<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("login", request)%></font></br>
 
 							<span class="pl-sm-5"><b>Password</b> <span
@@ -154,29 +147,32 @@ i.css {
 											<i class="fa fa-lock grey-text" style="font-size: 1rem;"></i>
 										</div>
 									</div>
-									<input type="password" id="myInput"
-										class="form-control Shadow" name="password"
-										placeholder="Enter password"
+									<input type="password" id="myInput" class="form-control input-group-addon"
+										name="password" placeholder="Enter password"
 										value="<%=DataUtility.getStringData(dto.getPassword())%>">
 
+
 								</div>
+
+
 							</div>
 							<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("password", request)%></font></br>
 							</br>
 
+
 							<div class="text-center">
 
 								<input type="submit" name="operation"
-									class="btn btn-success "
+									class="btn btn-success btn-md hover-overlayed"
 									style="font-size: 17px" value="<%=LoginCtl.OP_SIGN_IN%>">
 
 								<input type="submit" name="operation"
-									class="btn btn-primary "
-									style="font-size: 17px" value="<%=LoginCtl.OP_SIGN_UP%>">
+									class="btn btn-primary btn-md" style="font-size: 17px"
+									value="<%=LoginCtl.OP_SIGN_UP%>">
 							</div>
 							<div class="text-center">
 								<a href="<%=ORSView.FORGET_PASSWORD_CTL%>"
-									style="color: gray; font-size: 15px;"><b>Forget my
+									style="color: white; font-size: 15px;"><b>Forget my
 										password ?</b></a>
 							</div>
 							<input type="hidden" name="uri" value="<%=uri%>">
@@ -185,9 +181,13 @@ i.css {
 				</div>
 				<div class="col-md-4 mb-4"></div>
 			</div>
+
 		</form>
 		</main>
+
+
 	</div>
+
 </body>
 <%@include file="FooterView.jsp"%>
 </html>

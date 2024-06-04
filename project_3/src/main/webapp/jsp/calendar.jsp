@@ -13,7 +13,7 @@
     $( "#datepicker" ).datepicker({
       changeMonth: true,
       changeYear: true,
-      yearRange : '1972:2002',
+      yearRange : '2023:2024',
 		dateFormat : 'mm/dd/yy',
 		endDate : '-18y',
 			maxDate:0 
@@ -53,10 +53,10 @@
 			changeMonth : true,
 			changeYear : true,
 			//yearRange: "c-20:c+0",
-			//yearRange : "1980:2025",
-		maxDate:'31/12/2003',
+			yearRange : "2020:2024",
+		//maxDate:'31/12/2003',
 		// minDate:0
-		yearRange : "-40:-18"
+		//yearRange : "-40:-18"
 		});
 	});
 	  </script>
