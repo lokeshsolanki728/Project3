@@ -40,6 +40,20 @@ public final class ModelFactory {
 		}
 		return marksheetModel;
 	}
+	
+	public IssueModelInt getIssueModel() {
+		IssueModelInt issueModel = (IssueModelInt) modelCache.get("issueModel");
+		if (issueModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				issueModel = new IssueModelHibImpl();
+			}
+			if ("JDBC".equals(DATABASE)) {
+				issueModel = new IssueModelHibImpl();
+			}
+			modelCache.put("issueModel", issueModel);
+		}
+		return issueModel;
+	}
 	public JobModelInt getJobModel() {
 		JobModelInt jobModel = (JobModelInt) modelCache.get("jobModel");
 		if (jobModel == null) {
@@ -193,19 +207,5 @@ public final class ModelFactory {
 		return bankModel;
 	}
 
-	public EmployeeModelInt getEmployeeModel() {
-
-		EmployeeModelInt EmployeeModel = (EmployeeModelInt) modelCache.get("EmployeeModel");
-		if (EmployeeModel == null) {
-			if ("Hibernate".equals(DATABASE)) {
-				EmployeeModel = new EmployeeModelHibImp();
-			}
-			/*
-			 * if ("JDBC".equals(DATABASE)) { bankModel = new UserModelJDBCImpl(); }
-			 */
-			modelCache.put("EmployeeModel", EmployeeModel);
-		}
-
-		return EmployeeModel;
-	}
+	
 }

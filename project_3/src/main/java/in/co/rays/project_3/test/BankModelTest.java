@@ -1,14 +1,10 @@
 package in.co.rays.project_3.test;
 
-import java.util.Date;
-
-import in.co.rays.project_3.dto.BankDTO;
-import in.co.rays.project_3.dto.EmployeeDTO;
+import in.co.rays.project_3.dto.IssueDTO;
 import in.co.rays.project_3.exception.ApplicationException;
-import in.co.rays.project_3.exception.DuplicateRecordException;
-import in.co.rays.project_3.model.BankModelInt;
+import in.co.rays.project_3.model.IssueModelInt;
 import in.co.rays.project_3.model.ModelFactory;
-import in.co.rays.project_3.model.EmployeeModelInt;
+import in.co.rays.project_3.util.DataUtility;
 
 public class BankModelTest {
 	public static void main(String[] args) throws Exception, Exception {
@@ -17,16 +13,21 @@ public class BankModelTest {
 
 	private static void testAdd() throws ApplicationException, Exception {
 		//BankDTO dto=new BankDTO();
-		EmployeeDTO dto=new EmployeeDTO();
-		dto.setName("Amit");
-		//dto.setAddress("address");
-		dto.setAccountNumber("123456");
-		dto.setDob(new Date());
-		dto.setStatus("Active");
-		dto.setSalary("9000");
-		//BankModelInt bankModel=ModelFactory.getInstance().getBankModel();
-		EmployeeModelInt EmployeeModel=ModelFactory.getInstance().getEmployeeModel();
-		EmployeeModel.add(dto);
+		IssueDTO dto = new IssueDTO();
+		dto.setOpenDate(DataUtility.getDate("09/09/2000"));
+		dto.setTitle("nandani");
+		dto.setDescription("bad girl nh h");
+		dto.setAssignTo("nandani");
+		dto.setStatus("active");
+		
+		IssueModelInt modelint=ModelFactory.getInstance().getIssueModel();
+		modelint.add(dto);
+		
+		
+		
+		
+			//EmployeeModelInt EmployeeModel=ModelFactory.getInstance().getEmployeeModel();
+		
 		
 		
 	}

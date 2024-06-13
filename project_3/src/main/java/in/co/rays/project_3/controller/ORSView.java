@@ -47,6 +47,11 @@ public interface ORSView {
 	public String SUBJECT_LIST_VIEW = PAGE_FOLDER + "/SubjectListView.jsp";
 	
 	
+	
+	public String ISSUE_VIEW = PAGE_FOLDER + "/IssueView.jsp";
+	public String ISSUE_LIST_VIEW = PAGE_FOLDER + "/IssueListView.jsp";
+	
+	
 	public String ERROR_CTL = APP_CONTEXT +"/ErrorCtl";
 	public String Employee_CTL = APP_CONTEXT + "/ctl/EmployeeCtl";
 	public String Employee_LIST_CTL = APP_CONTEXT + "/ctl/EmployeeListCtl";
@@ -79,6 +84,11 @@ public interface ORSView {
 	public String SUBJECT_LIST_CTL = APP_CONTEXT + "/ctl/SubjectListCtl";
 	public String TIMETABLE_CTL = APP_CONTEXT + "/ctl/TimeTableCtl";
 	public String TIMETABLE_LIST_CTL = APP_CONTEXT + "/ctl/TimeTableListCtl";
+	
+	
+	
+	public String ISSUE_CTL = APP_CONTEXT + "/ctl/IssueCtl";
+	public String ISSUE_LIST_CTL = APP_CONTEXT + "/ctl/IssueListCtl";
 	
 	
 	public String GET_MARKSHEET_CTL = APP_CONTEXT + "/ctl/GetMarksheetCtl";

@@ -92,17 +92,8 @@
 				<%
 					} else if (userDto.getRoleId() == RoleDTO.ADMIN || userDto.getRoleId() == RoleDTO.COLLEGE_SCHOOL) {
 				%>
-				<%-- <li class="nav-item dropdown" style="padding-left: 5px;"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <font style="color: Black;">Employee</font>
-				</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="<%=ORSView.Employee_CTL%>"> <i
-							class="fas fa-user-circle"></i>Add Employee
-						</a> <a class="dropdown-item" href="<%=ORSView.Employee_LIST_CTL%>"><i
-							class="fas fa-user-friends"></i>Employee List</a>
-					</div></li>
+			
+					
 					
 					
 				 <li class="nav-item dropdown" style="padding-left: 5px;"><a
@@ -115,12 +106,12 @@
 							class="fas fa-user-circle"></i>Add Bank
 						</a> <a class="dropdown-item" href="<%=ORSView.BANK_LIST_CTL%>"><i
 							class="fas fa-user-friends"></i>Bank List</a>
-					</div></li>  --%>
+					</div></li> 
 					
 					
 					
 					
-					
+				 	
 					<li class="nav-item dropdown" style="padding-left: 5px;"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -131,6 +122,19 @@
 							class="fas fa-user-circle"></i>Add JobRequirement
 						</a> <a class="dropdown-item" href="<%=ORSView.JOB_LIST_CTL%>"><i
 							class="fas fa-user-friends"></i>JobRequirement List</a>
+					</div></li>  
+					
+					
+					<li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: Black;">Issue</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.ISSUE_CTL%>"> <i
+							class="fas fa-user-circle"></i> Add Issue
+						</a> <a class="dropdown-item" href="<%=ORSView.ISSUE_LIST_CTL%>"><i
+							class="fas fa-user-friends"></i>Issue List</a>
 					</div></li> 
 					
 					

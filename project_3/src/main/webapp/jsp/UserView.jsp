@@ -13,6 +13,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>User view</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+ <script type="text/javascript">
+        function validateMaxLength(input) {
+            if (input.value.length > 10) {
+                input.value = input.value.slice(0, 10);
+            }
+        }
+    </script>
 <style type="text/css">
 i.css {
 	border: 2px solid #8080803b;
@@ -211,8 +218,8 @@ i.css {
 													style="font-size: 1rem;"></i>
 											</div>
 										</div>
-										<input type="text" class="form-control" id="defaultForm-email"
-											maxlength="10" name="mobileNo" placeholder="mobile No"
+										<input type="number" class="form-control" id="mobileNo" oninput="validateMaxLength(this)" required
+											 name="mobileNo" placeholder="mobile No"
 											value="<%=DataUtility.getStringData(dto.getMobileNo())%>">
 									</div>
 								</div>
@@ -265,9 +272,9 @@ i.css {
 												<i class="fa fa-calendar grey-text" style="font-size: 1rem;"></i>
 											</div>
 										</div>
-										<input type="text" id="datepicker2" name="dob"
+										<input type="text" id="datepicker2" name="dob" 
 											class="form-control" placeholder="Date Of Birth"
-											readonly="readonly"
+											readonly="readonly" 
 											value="<%=DataUtility.getDateString(dto.getDob())%>">
 									</div>
 								</div>

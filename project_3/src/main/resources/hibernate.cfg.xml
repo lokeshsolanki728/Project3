@@ -7,7 +7,7 @@
 	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/proj3</property>
-
+        <!--  <property name="hibernate.connection.url">jdbc:mysql://mysql:3306/proj3</property> -->
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">root</property>
 
@@ -49,9 +49,9 @@
 			<mapping resource="in/co/rays/project_3/hbm/BankDTO.hbm.xml"/>
 			
 			
-			<mapping resource="in/co/rays/project_3/hbm/EmployeeDTO.hbm.xml"/> 
+		
 			<mapping resource="in/co/rays/project_3/hbm/JobRequirementDTO.hbm.xml"/>
-			
+			<mapping resource="in/co/rays/project_3/hbm/IssueDTO.hbm.xml"/>
 			
 			
 
