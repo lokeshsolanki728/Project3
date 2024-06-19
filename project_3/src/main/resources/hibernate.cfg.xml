@@ -6,8 +6,16 @@
 
 	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/proj3</property>
-        <!--  <property name="hibernate.connection.url">jdbc:mysql://mysql:3306/proj3</property> -->
+		 <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/proj3</property>
+
+		<!-- Connection for Docker -->
+		<!-- <property name="hibernate.connection.url">jdbc:mysql://mysql:3306/proj3</property> -->
+
+			<!-- Connection for aws -->
+		<!-- <property name="hibernate.connection.username">rays</property> <property 
+			name="hibernate.connection.password">indore@123</property> -->
+
+
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">root</property>
 
@@ -30,30 +38,32 @@
 			20 <property name="hibernate.c3p0.max_statements">50</property> <property 
 			name="hibernate.c3p0.idle_test_period">3000</property> -->
 
-		 <mapping resource="in/co/rays/project_3/hbm/UserDTO.hbm.xml" />
-		 <mapping resource="in/co/rays/project_3/hbm/RoleDTO.hbm.xml" />
-		 <mapping
+		<mapping resource="in/co/rays/project_3/hbm/UserDTO.hbm.xml" />
+		<mapping resource="in/co/rays/project_3/hbm/RoleDTO.hbm.xml" />
+		<mapping
 			resource="in/co/rays/project_3/hbm/StudentDTO.hbm.xml" />
 		<mapping
 			resource="in/co/rays/project_3/hbm/CollegeDTO.hbm.xml" />
 		<mapping resource="in/co/rays/project_3/hbm/CourseDTO.hbm.xml" />
-		
-			<mapping resource="in/co/rays/project_3/hbm/MarksheetDTO.hbm.xml" />
+
+		<mapping
+			resource="in/co/rays/project_3/hbm/MarksheetDTO.hbm.xml" />
 		<mapping
 			resource="in/co/rays/project_3/hbm/TimetableDTO.hbm.xml" />
 		<mapping
 			resource="in/co/rays/project_3/hbm/FacultyDTO.hbm.xml" />
 		<mapping
 			resource="in/co/rays/project_3/hbm/SubjectDTO.hbm.xml" />
-			
-			<mapping resource="in/co/rays/project_3/hbm/BankDTO.hbm.xml"/>
-			
-			
-		
-			<mapping resource="in/co/rays/project_3/hbm/JobRequirementDTO.hbm.xml"/>
-			<mapping resource="in/co/rays/project_3/hbm/IssueDTO.hbm.xml"/>
-			
-			
+
+		<mapping resource="in/co/rays/project_3/hbm/BankDTO.hbm.xml" />
+
+		<mapping resource="in/co/rays/project_3/hbm/ClientDTO.hbm.xml" />
+
+		<mapping
+			resource="in/co/rays/project_3/hbm/JobRequirementDTO.hbm.xml" />
+		<mapping resource="in/co/rays/project_3/hbm/IssueDTO.hbm.xml" />
+
+
 
 		<!--<mapping class="in.co.rays.project_3.dto.UserDTO"/> <mapping class="in.co.rays.project_3.dto.CollegeDTO"/> 
 			<mapping class="in.co.rays.project_3.dto.CourseDTO"/> <mapping class="in.co.rays.project_3.dto.FacultyDTO"/> 

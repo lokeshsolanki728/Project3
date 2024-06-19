@@ -70,6 +70,13 @@ return Integer.parseInt(val);
 return 0;
 }
 }
+public static String getDouble(Double val) {
+if (val>0) {
+return ""+val;
+} else {
+return "";
+}
+}
 
 /**
 *

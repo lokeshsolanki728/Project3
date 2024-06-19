@@ -1,4 +1,3 @@
-
 <%@page import="java.util.HashMap"%>
 <%@page import="in.co.rays.project_3.dto.IssueDTO"%>
 <%@page import="java.util.Iterator"%>
@@ -122,7 +121,6 @@
 						class="form-control"
 						value="<%=ServletUtility.getParameter("openDate", request)%>">
 				</div>
-
 			
 				 <div class="col-sm-2">
 					<input type="text" name="description" placeholder="Enter description "
@@ -130,15 +128,15 @@
 						value="<%=ServletUtility.getParameter("description", request)%>">
 				</div> 
 				
-				 
-			 
-			
+				 <div class="col-sm-2">
+					<input type="text" name="status" placeholder="Enter status "
+						class="form-control"
+						value="<%=ServletUtility.getParameter("status", request)%>">
+				</div> 
 				
 				<div class="col-sm-2"><%=HTMLUtility.getList("assignTo", String.valueOf(dto.getAssignTo()), list1)%></div>
 				&emsp;
-				 
-				
-										
+								<br>	
 				<div class="col-sm-2">
 					<input type="submit" class="btn btn-primary btn-md"
 						style="font-size: 15px" name="operation"
@@ -148,7 +146,7 @@
 				</div>
 
 
-				<div class="col-sm-2"></div>
+				
 			</div>
 
 			</br>
@@ -172,7 +170,6 @@
 						while (it.hasNext()) {
 								dto = it.next();
 
-							/* 	RoleDTO rbean = rmodel.findByPK(dto.getRoleId()); */
 					%>
 					<tbody>
 						<tr>
@@ -183,9 +180,6 @@
 							<td class="text"><%=DataUtility.getDateString(dto.getOpenDate())%></td>
 							<td class="text"><%=dto.getTitle()%></td>
 							<td class="text"><%=dto.getDescription()%></td>
-							
-							<%-- <td class="text"><%=rbean.getName()%></td> --%>
-							
 							<td class="text"><%=dto.getAssignTo()%></td>
 							<td class="text"><%=dto.getStatus()%></td>
 							<td class="text"><a href="IssueCtl?id=<%=dto.getId()%>">Edit</a></td>
@@ -243,9 +237,6 @@
 					}
 				%>
 
-
-
-
 				<%
 					if (!ServletUtility.getSuccessMessage(request).equals("")) {
 				%>
@@ -280,8 +271,6 @@
 
 
 	</div>
-
-
 </body>
 <%@include file="FooterView.jsp"%>
 </html>

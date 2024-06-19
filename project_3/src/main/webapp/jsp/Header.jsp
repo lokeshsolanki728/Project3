@@ -76,6 +76,8 @@
 							href="<%=ORSView.MARKSHEET_MERIT_LIST_CTL%>"><i
 								class=" far fa-file-alt"></i>Marksheet Merit List</a>
 					</div></li>
+					
+					
 
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -107,11 +109,19 @@
 						</a> <a class="dropdown-item" href="<%=ORSView.BANK_LIST_CTL%>"><i
 							class="fas fa-user-friends"></i>Bank List</a>
 					</div></li> 
-					
-					
-					
-					
-				 	
+				
+					<li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"> <font style="color: Black;">Client</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.CLIENT_CTL%>"> <i
+							class="fas fa-user-circle"></i>Add Client
+						</a> <a class="dropdown-item" href="<%=ORSView.CLIENT_LIST_CTL%>"><i
+							class="fas fa-user-friends"></i>Client List</a>
+					</div></li> 
+ 	
 					<li class="nav-item dropdown" style="padding-left: 5px;"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"

@@ -41,6 +41,20 @@ public final class ModelFactory {
 		return marksheetModel;
 	}
 	
+	public ClientModelInt getClientModel() {
+		ClientModelInt clientModel = (ClientModelInt) modelCache.get("clientModel");
+		if (clientModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				clientModel = new ClientModelHibImpl();
+			}
+			if ("JDBC".equals(DATABASE)) {
+				clientModel = new ClientModelHibImpl();
+			}
+			modelCache.put("marksheetModel", clientModel);
+		}
+		return clientModel;
+	}
+	
 	public IssueModelInt getIssueModel() {
 		IssueModelInt issueModel = (IssueModelInt) modelCache.get("issueModel");
 		if (issueModel == null) {

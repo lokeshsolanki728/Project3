@@ -4,7 +4,7 @@
 <!-- Generated 17 Nov, 2019 11:49:54 AM by Hibernate Tools 3.5.0.Final -->
 
 <hibernate-mapping package="in.co.rays.project_3.dto">
-	<class name="StudentDTO" table="ST_STUDENT">
+	<class name="StudentDTO" table="st_student">
 		<id name="id" type="java.lang.Long">
 			<column name="ID" ></column>
 			<generator class="increment" ></generator>

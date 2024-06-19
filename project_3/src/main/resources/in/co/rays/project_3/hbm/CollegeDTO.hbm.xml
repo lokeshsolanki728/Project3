@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 10 Jan, 2021 11:42:16 AM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping package="in.co.rays.project_3.dto">
-	<class name="CollegeDTO" table="ST_COLLEGE">
+	<class name="CollegeDTO" table="st_collage">
 	
 		 <id name="id" type="java.lang.Long">
             <column name="ID" />
